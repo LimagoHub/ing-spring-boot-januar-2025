@@ -1,5 +1,6 @@
 package de.ing.mywebapp.service.config;
 
+import de.ing.mywebapp.YamlPropertySourceFactory;
 import de.ing.mywebapp.service.MailData;
 import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -9,7 +10,7 @@ import org.springframework.context.annotation.PropertySource;
 
 @Configuration
 @Setter
-@PropertySource(value= "classpath:mail.properties")
+@PropertySource(value= "classpath:mail.yml", factory = YamlPropertySourceFactory.class)
 @ConfigurationProperties(prefix = "mail")
 public class MailConfig {
 

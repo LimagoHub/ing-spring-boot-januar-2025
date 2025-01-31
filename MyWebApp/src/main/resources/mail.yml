@@ -1,0 +1,5 @@
+mail:
+    smtp: mail.irgendwo.de
+    user: Freddy
+    passwort: geheim
+    protokoll: pop

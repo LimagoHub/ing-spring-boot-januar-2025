@@ -2,6 +2,7 @@ package de.ing.mywebapp.presentation.errorhandler;
 
 
 import de.ing.mywebapp.SeltsamException;
+import de.ing.mywebapp.service.PersonenServiceException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
@@ -39,17 +40,7 @@ public class ErrorHandler extends ResponseEntityExceptionHandler {
         return  ResponseEntity.badRequest().body(body);
     }
 
-    @ExceptionHandler(SeltsamException.class)
-    public ResponseEntity<Object> handlePersonenServiceException(SeltsamException ex, WebRequest request) {
 
-        Map<String, Object> body = new HashMap<>();
-        return  ResponseEntity.badRequest().body(body);
-    }
 
-    @ExceptionHandler(Exception.class)
-    public ResponseEntity<Object> handlePersonenServiceException(Exception ex, WebRequest request) {
 
-        Map<String, Object> body = new HashMap<>();
-        return  ResponseEntity.badRequest().body(body);
-    }
 }
