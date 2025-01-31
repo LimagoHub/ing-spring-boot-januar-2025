@@ -2,6 +2,7 @@ package de.ing.mywebapp;
 
 import de.ing.mywebapp.persistence.PersonRepository;
 import de.ing.mywebapp.persistence.entity.PersonEntity;
+import de.ing.mywebapp.service.MailData;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -12,16 +13,11 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class Demo {
 
-    private final PersonRepository repo;
+    private final MailData data;
 
     @PostConstruct
     public void doIt() {
-        var p = PersonEntity.builder()
-                .id(UUID.randomUUID())
-                .vorname("John")
-                .nachname("Doe")
-                .build();
-        repo.save(p);
+        System.out.println(data);
     }
 
 }

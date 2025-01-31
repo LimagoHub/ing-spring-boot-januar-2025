@@ -1,7 +1,6 @@
-package de.ing.mywebapp.presentation;
+package de.ing.mywebapp.presentation.controller.v1;
 
 
-import de.ing.mywebapp.persistence.PersonRepository;
 import de.ing.mywebapp.presentation.dto.PersonDto;
 import de.ing.mywebapp.presentation.mapper.PersonDtoMapper;
 import de.ing.mywebapp.service.PersonService;
@@ -11,8 +10,6 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 @RestController

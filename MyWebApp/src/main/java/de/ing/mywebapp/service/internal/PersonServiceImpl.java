@@ -6,6 +6,7 @@ import de.ing.mywebapp.service.PersonenServiceException;
 import de.ing.mywebapp.service.mapper.PersonMapper;
 import de.ing.mywebapp.service.model.Person;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
@@ -15,13 +16,15 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-@Service
+
 @RequiredArgsConstructor
 @Transactional(rollbackFor = PersonenServiceException.class, propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)
 public class PersonServiceImpl implements PersonService {
 
     private final PersonRepository personRepository;
     private final PersonMapper mapper;
+    @Qualifier("antipathen")
+    private final List<String> antipathen;
 
     /*
            Parameter null -> PSE
@@ -56,7 +59,7 @@ public class PersonServiceImpl implements PersonService {
         if(person.getVorname() == null || person.getVorname().length() < 2) throw new PersonenServiceException("Vorname zu kurz");
         if(person.getNachname() == null || person.getNachname().length() < 2) throw new PersonenServiceException("Nachname zu kurz");
 
-        if(person.getVorname().equalsIgnoreCase("attila")) throw new PersonenServiceException("Antipath");
+        if(antipathen.contains(person.getVorname())) throw new PersonenServiceException("Antipath");
 
         personRepository.save(mapper.convert(person));
     }

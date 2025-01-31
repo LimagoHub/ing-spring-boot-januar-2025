@@ -1,6 +1,5 @@
-package de.ing.mywebapp.presentation;
+package de.ing.mywebapp.presentation.controller.v1;
 
-import de.ing.mywebapp.SeltsamException;
 import de.ing.mywebapp.presentation.dto.PersonDto;
 import de.ing.mywebapp.presentation.mapper.PersonDtoMapper;
 import de.ing.mywebapp.service.PersonService;
@@ -10,8 +9,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.context.annotation.RequestScope;
-import org.springframework.web.context.annotation.SessionScope;
 import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
